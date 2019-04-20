@@ -1,0 +1,6 @@
+celery flower worker -A programadorEventos.task --loglevel=info --port=5555
+
+celery worker -A programadorEventos.task --loglevel=info
+celery flower --port=5555
+
+scrapy crawl mercado

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>TAREAS</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    </head>
+        <div class="page-header">
+            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+            <a href="{% url 'crear' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            <a href="{% url 'lanzar' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            <a href="{% url 'lanzarAr' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+
+        <h1>Plantilla Tareas</h1>
+        </div>
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                    {% block content %}
+                        <table class="table table-striped">
+                            <tr>
+                            <th>Nombre</th>
+                            <th>Fecha</th>
+
+                          </tr>
+
+                            {% for tarea in tareas %} <tr> <td>{{ tarea.articulo }}</td><td>{{ tarea.fecha }}</td> </tr>{% endfor %}
+
+                        </table>
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

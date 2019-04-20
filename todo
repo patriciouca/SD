@@ -1,0 +1,7 @@
+admin
+admin@example.com
+holamundo123
+
+python manage.py makemigrations polls
+python manage.py sqlmigrate polls 0001
+
