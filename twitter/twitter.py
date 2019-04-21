@@ -11,12 +11,8 @@ auth.set_access_token ( access_token , access_token_secret )
 api = tweepy.API (auth)
 
 def escribirTweet():
-    tweet = "hola mundo"
-    #archivo = open("datosProducto.txt",'r')
-    #tweet = archivo.read()
+    archivo = open("datosProducto.txt",'r')
+    tweet = archivo.read()
     api.update_status(tweet)
-
-# for hasta no se donde para que no lea txt entero
-
 
 
