@@ -14,14 +14,15 @@ class AmazontrackPipeline(object):
         #f.close()
 
         try:
-            with open(ruta, 'w', newline='') as csvfile:
+            fh = open(ruta, 'r')
+            with open(ruta, 'a', newline='') as csvfile:
                 fieldnames = ['fecha', 'precio']
                 writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
                 writer.writeheader()
                 writer.writerow({'fecha': timezone.now(), 'precio': item['precio']})
 
         except FileNotFoundError:
-            with open('/datos/'+"nombre"+'.csv', 'w' ,newline='') as csvfile:
+            with open(ruta, 'w' ,newline='') as csvfile:
                 fieldnames = ['fecha', 'precio']
                 writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
                 writer.writeheader()
