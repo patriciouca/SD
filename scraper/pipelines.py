@@ -7,7 +7,7 @@ from django.utils import timezone
 
 class AmazontrackPipeline(object):
     def process_item(self, item, spider):
-        ruta = 'datos/'+"nombre"+'.csv'
+        ruta = 'datos/'+item['nombre']+'.csv'
         print(ruta)
         #f = open("datosProducto.txt", "a")
         #f.write(item['nombre']+" "+item['precio'])
