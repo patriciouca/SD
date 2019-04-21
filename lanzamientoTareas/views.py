@@ -8,6 +8,7 @@ from django.utils import timezone
 from lanzamientoTareas.models import TareaForm, Tarea
 from programadorEventos.task import multiply
 from scraper.pedirObjeto import llamadaArana
+from twitter.twitter import escribirTweet
 
 
 def index(request):
@@ -35,4 +36,8 @@ def lanzarEvento(request):
 
 def lanzarArana(request):
     llamadaArana()
+    return HttpResponse("ok")
+
+def escribirT(request):
+    escribirTweet()
     return HttpResponse("ok")
