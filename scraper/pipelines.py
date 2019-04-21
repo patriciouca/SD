@@ -25,6 +25,5 @@ class AmazontrackPipeline(object):
             with open(ruta, 'w' ,newline='') as csvfile:
                 fieldnames = ['fecha', 'precio']
                 writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-                writer.writeheader()
                 writer.writerow({'fecha': timezone.now(), 'precio': item['precio']})
         return item
