@@ -1,5 +1,5 @@
-from io import open
 import tweepy
+import pandas as pd
 
 consumer_key = "hoBOoYlt8LA8lFi5Duc75YQ3Z"
 consumer_secret = "D0E8qoQc0cAt5Hw1dwt2vVlbXwUTHRhYHT4eYqe7B7jnv7ZOLH"
@@ -11,8 +11,9 @@ auth.set_access_token ( access_token , access_token_secret )
 api = tweepy.API (auth)
 
 def escribirTweet():
-    archivo = open("datosProducto.txt",'r')
-    tweet = archivo.read()
-    api.update_status(tweet)
+    data=pd.read_csv('datos/O\'Neill LM Tonal Camiseta Manga Corta, Hombre.csv')
+    print(data)
 
+    #primero ordenar en el csv el ultimo dato al que se hace scrapping, ordenar las filas
+    #luego coger la primera fila donde estara el dato mas actualizado
 
