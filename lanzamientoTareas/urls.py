@@ -7,5 +7,6 @@ urlpatterns = [
     path('crear', views.add_Tarea, name='crear'),
     path('lanzar', views.lanzarEvento, name='lanzar'),
     path('lanzarAr', views.lanzarArana, name='lanzarAr'),
-    path('escribirTweet', views.escribirT, name='escribirTweet')
+    path('escribirTweet', views.escribirT, name='escribirTweet'),
+    path('generarGrafica', views.grafica, name='generarGrafica')
 ]
