@@ -6,7 +6,7 @@ import io
 # Create your views here.
 from django.http import HttpResponse
 from django.utils import timezone
-from matplotlib.backends.backend_svg import FigureCanvasSVG as SVG
+
 
 from graficas.graficas import generarGrafica
 from lanzamientoTareas.models import TareaForm, Tarea

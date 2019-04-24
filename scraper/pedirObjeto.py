@@ -1,6 +1,7 @@
 import logging
 from multiprocessing import Process, Queue
 
+from scrapy import signals
 import json
 
 import os
