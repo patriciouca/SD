@@ -2,7 +2,7 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-
+from programadorEventos.task import escucharTweets
 
 def main():
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'untitled1.settings')
@@ -16,6 +16,6 @@ def main():
         ) from exc
     execute_from_command_line(sys.argv)
 
-
 if __name__ == '__main__':
     main()
+    escucharTweets()

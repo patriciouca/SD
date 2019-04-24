@@ -30,6 +30,9 @@ class MyStreamListener(tweepy.StreamListener):
 
     def on_status(self, status):
         print(status.text)
+        f = open('holamundo.txt', 'w')
+        f.write(status.text)
+        f.close()
 
 
 def escuchaMencion():

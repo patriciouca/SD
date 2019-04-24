@@ -1,7 +1,6 @@
 import logging
 from multiprocessing import Process, Queue
 
-from scrapy import signals
 import json
 
 import os
@@ -38,7 +37,7 @@ def run_spi_pro(spider):
             settings = get_project_settings()
             process = CrawlerProcess(settings)
             start=[]
-         
+
             for member in lista_nombres:
                 start.append("https://www.amazon.es/"+member)
 

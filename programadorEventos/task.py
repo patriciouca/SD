@@ -7,6 +7,7 @@ import os
 from scraper.pedirObjeto import llamadaArana
 
 from celery import Celery, shared_task
+from twitter.twitter import escuchaMencion
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'untitled1.settings')
 
@@ -23,6 +24,11 @@ app.conf.beat_schedule = {
 
 app.conf.timezone = 'Europe/Madrid'
 '''
+
+@shared_task
+def escucharTweets():
+    escuchaMencion()
+
 @shared_task
 def multiply(a, b):
     return a * b
