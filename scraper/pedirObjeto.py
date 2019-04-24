@@ -15,7 +15,7 @@ from twisted.internet import reactor
 from scraper.items import AmazonItem
 from scraper.spiders.amazon import AmazonSpider
 
-lista_nombres = ['Lenovo-ideapad-330-15ARR-Ordenador-Portátil/dp/B07HYNLTHS','ONeill-Tonal-Camiseta-Manga-Hombre/dp/B07K96RBJ7','SONNENGLAS-Original-micro-USB-Sudáfrica-inoxidable/dp/B00BDPTNB8','+Tira-luz-LED-RGB-compatible/dp/B07MDZ4FFW']
+lista_nombres = ['YI-1080P60-Dashboard-G-Sensor-Recording/dp/B01C89GCHU','ONeill-Tonal-Camiseta-Manga-Hombre/dp/B07K96RBJ7','SONNENGLAS-Original-micro-USB-Sudáfrica-inoxidable/dp/B00BDPTNB8','+Tira-luz-LED-RGB-compatible/dp/B07MDZ4FFW']
 
 def llamadaArana():
     sys.path.append(os.path.dirname(os.path.abspath('.')))
