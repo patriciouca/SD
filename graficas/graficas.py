@@ -16,3 +16,5 @@ def generarGrafica():
     plt.savefig('graficas/imagenes/foo.png')
     plt.show()
 
+
+

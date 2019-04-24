@@ -12,7 +12,7 @@ from graficas.graficas import generarGrafica
 from lanzamientoTareas.models import TareaForm, Tarea
 from programadorEventos.task import multiply
 from scraper.pedirObjeto import llamadaArana
-from twitter.twitter import escribirTweet
+from twitter.twitter import escribirTweet,escuchaMencion
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 
 
@@ -45,6 +45,11 @@ def lanzarArana(request):
 
 def escribirT(request):
     escribirTweet()
+    return HttpResponse("ok")
+
+def escucharT(request):
+    escuchaMencion()
+
     return HttpResponse("ok")
 
 def grafica(request):

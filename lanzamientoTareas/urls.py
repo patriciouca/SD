@@ -9,5 +9,6 @@ urlpatterns = [
     path('lanzarAr', views.lanzarArana, name='lanzarAr'),
     path('escribirTweet', views.escribirT, name='escribirTweet'),
     path('generarGrafica', views.grafica, name='generarGrafica'),
-    path('getTareas', views.getTareas, name='getTareas')
+    path('getTareas', views.getTareas, name='getTareas'),
+    path('escuchaMencion', views.escucharT, name='escuchaMencion')
 ]

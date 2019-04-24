@@ -12,6 +12,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'untitled1.settings')
 
 app = Celery('tasks', broker='amqp://guest@localhost//',  backend='redis://localhost:6379/0')
 
+'''
 app.conf.beat_schedule = {
     'add-every-3-hours': {
         'task': 'tasks.add',
@@ -21,7 +22,7 @@ app.conf.beat_schedule = {
 }
 
 app.conf.timezone = 'Europe/Madrid'
-
+'''
 @shared_task
 def multiply(a, b):
     return a * b

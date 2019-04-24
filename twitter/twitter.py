@@ -1,4 +1,5 @@
 import tweepy
+from tweepy import Stream, StreamListener
 import pandas as pd
 
 consumer_key = "hoBOoYlt8LA8lFi5Duc75YQ3Z"
@@ -12,8 +13,32 @@ api = tweepy.API (auth)
 
 def escribirTweet():
     data=pd.read_csv('datos/O\'Neill LM Tonal Camiseta Manga Corta, Hombre.csv')
-    print(data)
+    data.head()
+    ultimoelemento = len(data['fecha'])-1
+    ultimafecha = data['fecha'][ultimoelemento]
+    ultimoprecio = data['precio'][ultimoelemento]
 
-    #primero ordenar en el csv el ultimo dato al que se hace scrapping, ordenar las filas
-    #luego coger la primera fila donde estara el dato mas actualizado
+    mensajeTweet(ultimoelemento,ultimafecha,ultimoprecio)
+
+
+def mensajeTweet(elem,fech,pre):
+
+    api.update_status('El producto Camiseta tiene el siguiente precio a dia ' + fech + '. Precio actualizado: ' + pre)
+
+
+class MyStreamListener(tweepy.StreamListener):
+
+    def on_status(self, status):
+        print(status.text)
+
+
+def escuchaMencion():
+    myStreamListener = MyStreamListener()
+    myStream = tweepy.Stream(auth=api.auth, listener=myStreamListener)
+    myStream.filter(track=["@AmazonCadiz"])
+
+    return 0;
+
+
+
 
