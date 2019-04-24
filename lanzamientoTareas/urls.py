@@ -8,5 +8,6 @@ urlpatterns = [
     path('lanzar', views.lanzarEvento, name='lanzar'),
     path('lanzarAr', views.lanzarArana, name='lanzarAr'),
     path('escribirTweet', views.escribirT, name='escribirTweet'),
-    path('generarGrafica', views.grafica, name='generarGrafica')
+    path('generarGrafica', views.grafica, name='generarGrafica'),
+    path('getTareas', views.getTareas, name='getTareas')
 ]

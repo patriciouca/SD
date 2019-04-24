@@ -50,3 +50,7 @@ def escribirT(request):
 def grafica(request):
     generarGrafica()
     return HttpResponse("ok")
+
+def getTareas(request):
+    tareas=Tarea.all()
+    return tareas
