@@ -10,9 +10,17 @@ from celery import Celery, shared_task
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'untitled1.settings')
 
-# Redis
 app = Celery('tasks', broker='amqp://guest@localhost//',  backend='redis://localhost:6379/0')
 
+app.conf.beat_schedule = {
+    'add-every-3-hours': {
+        'task': 'tasks.add',
+        'schedule': crontab(minute=0, hour='*/3'),
+        'args': ()
+    },
+}
+
+app.conf.timezone = 'Europe/Madrid'
 
 @shared_task
 def multiply(a, b):

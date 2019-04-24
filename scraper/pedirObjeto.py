@@ -38,8 +38,11 @@ def run_spi_pro(spider):
             settings = get_project_settings()
             process = CrawlerProcess(settings)
             start=[]
+            '''
             for member in lista_nombres:
                 start.append("https://www.amazon.es/"+member)
+            '''
+            start.append("https://www.amazon.es/Legend-Zelda-Breath-Wild-Nintendo-Switch/dp/B01MS6MO77/ref=br_asw_pdt-4?pf_rd_m=ATVPDKIKX0DER&pf_rd_s=&pf_rd_r=BMEE9DNZEJ7454D8V8A1&pf_rd_t=36701&pf_rd_p=f8585743-c043-4665-80a7-0cc5fe97d596&pf_rd_i=desktop")
             process.crawl(spider,start_urls=start)
             process.start()  # the script will block here until the crawling is finished
             q.put(None)

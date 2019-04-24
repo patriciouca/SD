@@ -52,5 +52,4 @@ def grafica(request):
     return HttpResponse("ok")
 
 def getTareas(request):
-    tareas=Tarea.all()
-    return tareas
+    return Tarea.objects.all()
