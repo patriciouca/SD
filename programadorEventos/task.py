@@ -4,8 +4,11 @@ from __future__ import absolute_import
 from __future__ import absolute_import
 
 import os
-from scraper.pedirObjeto import llamadaArana
 
+from celery.schedules import crontab
+
+from scraper.pedirObjeto import llamadaArana, scrapytareas
+from celery.decorators import task
 from celery import Celery, shared_task
 from twitter.twitter import escuchaMencion
 
@@ -15,20 +18,25 @@ app = Celery('tasks', broker='amqp://guest@localhost//',  backend='redis://local
 
 '''
 app.conf.beat_schedule = {
-    'add-every-3-hours': {
-        'task': 'tasks.add',
+    'scrappi-every-3-hours': {
+        'task': 'tasks.tareas',
         'schedule': crontab(minute=0, hour='*/3'),
         'args': ()
     },
 }
-
 app.conf.timezone = 'Europe/Madrid'
 '''
 
-@shared_task
+
+@task(name="twitter")
 def escucharTweets():
     escuchaMencion()
 
+'''
+@task(name="tareas")
+def tareas():
+    scrapytareas()
+'''
 @shared_task
 def multiply(a, b):
     return a * b

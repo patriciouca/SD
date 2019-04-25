@@ -36,6 +36,7 @@ class MyStreamListener(tweepy.StreamListener):
 
 
 def escuchaMencion():
+    print("Escuchando")
     myStreamListener = MyStreamListener()
     myStream = tweepy.Stream(auth=api.auth, listener=myStreamListener)
     myStream.filter(track=["@AmazonCadiz"])
