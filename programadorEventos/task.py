@@ -34,7 +34,7 @@ def escucharTweets():
 
 
 @task(name="tareas")
-def tareas():
+def scrapearTareas():
     scrapytareas()
 
 @shared_task

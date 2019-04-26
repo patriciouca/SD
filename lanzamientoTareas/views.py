@@ -13,6 +13,7 @@ from lanzamientoTareas.models import TareaForm, Tarea
 from programadorEventos.task import multiply
 from scraper.pedirObjeto import llamadaArana, scrapytareas
 from twitter.twitter import escribirTweet,escuchaMencion
+from programadorEventos.task import scrapearTareas
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 
 
@@ -57,5 +58,5 @@ def grafica(request):
     return HttpResponse("ok")
 
 def getTareas(request):
-    scrapytareas()
-    return Tarea.objects.all()
+    scrapearTareas().delay()
+    return "a"
