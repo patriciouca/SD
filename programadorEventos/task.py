@@ -35,12 +35,14 @@ app.conf.beat_schedule = {
 }
 
 app.conf.beat_schedule = {
-    'mention-30-mins': {
+    'mention-2-hours': {
         'task': 'task.twitter',
-        'schedule': crontab(minute=30, hour=0),
+        'schedule': crontab(minute=0, hour='*/2'),
         'args':()
     },
 }
+
+
 
 '''
 
