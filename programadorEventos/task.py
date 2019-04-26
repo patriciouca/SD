@@ -46,5 +46,16 @@ def sc():
     llamadaArana()
     return "ok"
 
+'''
+@shared_task
+def twitterStatus():
+    escribirTweet()
+    return "ok"
+'''
+
+
+
+
+
 
 
