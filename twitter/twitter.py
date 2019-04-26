@@ -42,7 +42,7 @@ def escuchaMencion():
     myStream = tweepy.Stream(auth=api.auth, listener=myStreamListener)
     myStream.filter(track=["@AmazonCadiz"])
 
-    return 0;
+    return 0
 
 
 

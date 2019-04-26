@@ -25,6 +25,23 @@ app.conf.beat_schedule = {
     },
 }
 app.conf.timezone = 'Europe/Madrid'
+
+app.conf.beat_schedule = {
+    'tweet-2-hours': {
+        'task': 'task.updateTwitter',
+        'schedule': crontab(minute=0, hour='*/2'),
+        'args':()
+    },
+}
+
+app.conf.beat_schedule = {
+    'mention-30-mins': {
+        'task': 'task.twitter',
+        'schedule': crontab(minute=30, hour=0),
+        'args':()
+    },
+}
+
 '''
 
 
@@ -47,10 +64,9 @@ def sc():
     return "ok"
 
 '''
-@shared_task
+@task(name="updateTwitter")
 def twitterStatus():
     escribirTweet()
-    return "ok"
 '''
 
 
