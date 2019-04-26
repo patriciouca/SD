@@ -32,11 +32,11 @@ app.conf.timezone = 'Europe/Madrid'
 def escucharTweets():
     escuchaMencion()
 
-'''
+
 @task(name="tareas")
-def tareas():
+def scrapearTareas():
     scrapytareas()
-'''
+
 @shared_task
 def multiply(a, b):
     return a * b

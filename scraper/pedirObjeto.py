@@ -29,7 +29,7 @@ def llamadaArana():
     item = AmazonItem()
     run_spi_pro(spider)
 
-def scrapytareas(spider):
+def scrapytareas():
     sys.path.append(os.path.dirname(os.path.abspath('.')))
     os.environ['DJANGO_SETTINGS_MODULE'] = 'mercado.settings'
 
@@ -39,7 +39,7 @@ def scrapytareas(spider):
     django.setup()
     spider = AmazonSpider
     item = AmazonItem()
-    #run_spi_pro_tar(spider)
+    run_spi_pro_tar(spider)
 
 def otro(spider):
     os.system("scrapy crawl yourspider")
@@ -50,12 +50,12 @@ def run_spi_pro_tar(spider):
         try:
             settings = get_project_settings()
             process = CrawlerProcess(settings)
-            start=[]
 
-            '''
+            start = []
+            from lanzamientoTareas.models import Tarea
             for member in Tarea.objects.all():
                 start.append(member.articulo)
-            '''
+
             process.crawl(spider,start_urls=start)
             process.start()  # the script will block here until the crawling is finished
             q.put(None)
