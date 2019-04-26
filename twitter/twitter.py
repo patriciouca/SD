@@ -12,6 +12,7 @@ auth.set_access_token ( access_token , access_token_secret )
 api = tweepy.API (auth)
 
 def escribirTweet():
+
     data=pd.read_csv('datos/O\'Neill LM Tonal Camiseta Manga Corta, Hombre.csv')
     data.head()
     ultimoelemento = len(data['fecha'])-1
