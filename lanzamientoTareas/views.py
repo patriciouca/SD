@@ -6,13 +6,14 @@ import io
 # Create your views here.
 from django.http import HttpResponse
 from django.utils import timezone
-from matplotlib.backends.backend_svg import FigureCanvasSVG as SVG
+
 
 from graficas.graficas import generarGrafica
 from lanzamientoTareas.models import TareaForm, Tarea
 from programadorEventos.task import multiply
-from scraper.pedirObjeto import llamadaArana
+from scraper.pedirObjeto import llamadaArana, scrapytareas
 from twitter.twitter import escribirTweet,escuchaMencion
+from programadorEventos.task import scrapearTareas
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 
 
@@ -57,4 +58,5 @@ def grafica(request):
     return HttpResponse("ok")
 
 def getTareas(request):
-    return Tarea.objects.all()
+    scrapearTareas().delay()
+    return "a"

@@ -12,6 +12,7 @@ auth.set_access_token ( access_token , access_token_secret )
 api = tweepy.API (auth)
 
 def escribirTweet():
+
     data=pd.read_csv('datos/O\'Neill LM Tonal Camiseta Manga Corta, Hombre.csv')
     data.head()
     ultimoelemento = len(data['fecha'])-1
@@ -36,11 +37,12 @@ class MyStreamListener(tweepy.StreamListener):
 
 
 def escuchaMencion():
+    print("Escuchando")
     myStreamListener = MyStreamListener()
     myStream = tweepy.Stream(auth=api.auth, listener=myStreamListener)
     myStream.filter(track=["@AmazonCadiz"])
 
-    return 0;
+    return 0
 
 
 
