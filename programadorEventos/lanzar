@@ -4,3 +4,6 @@ celery worker -A programadorEventos.task --loglevel=info
 celery flower --port=5555
 
 scrapy crawl mercado
+
+ps auxww | grep 'celery' | awk '{print $2}' | xargs kill -9
+ps auxww | grep 'flower' | awk '{print $2}' | xargs kill -9
