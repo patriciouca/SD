@@ -16,8 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+#from programadorEventos.task import escucharTweets
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('polls/', include('polls.urls')),
     path('lanzamientoTareas/', include('lanzamientoTareas.urls')),
+    #escucharTweets(repeat=1,repeat_until=None)
 ]

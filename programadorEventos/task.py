@@ -10,7 +10,6 @@ from celery.schedules import crontab
 from scraper.pedirObjeto import llamadaArana, scrapytareas
 from celery.decorators import task
 from celery import Celery, shared_task
-from twitter.twitter import escuchaMencion
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'untitled1.settings')
 
@@ -44,13 +43,13 @@ app.conf.beat_schedule = {
 
 
 
-'''
 
 
-@task(name="twitter")
+@background(schedule=5)
 def escucharTweets():
     escuchaMencion()
 
+'''
 
 @task(name="tareas")
 def scrapearTareas():
