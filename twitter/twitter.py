@@ -1,6 +1,9 @@
 import tweepy
 from tweepy import Stream, StreamListener
 import pandas as pd
+from django.utils import timezone
+
+from lanzamientoTareas.models import Tarea
 
 consumer_key = "hoBOoYlt8LA8lFi5Duc75YQ3Z"
 consumer_secret = "D0E8qoQc0cAt5Hw1dwt2vVlbXwUTHRhYHT4eYqe7B7jnv7ZOLH"
@@ -31,9 +34,11 @@ class MyStreamListener(tweepy.StreamListener):
 
     def on_status(self, status):
         print(status.text)
-        f = open('holamundo.txt', 'w')
-        f.write(status.text)
-        f.close()
+        if("quiero vigilar este producto" in status.text):
+            url=status.text[status.text.index("https"):]
+            url = url[0:url.index(" ")]
+            t = Tarea(articulo=url, fecha= timezone.now())
+            t.save()
 
 
 def escuchaMencion():

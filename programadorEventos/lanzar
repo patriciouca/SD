@@ -3,6 +3,8 @@ celery flower worker -A programadorEventos.task --loglevel=info --port=5555
 celery worker -A programadorEventos.task --loglevel=info
 celery flower --port=5555
 
+python3 manage.py process_tasks
+
 scrapy crawl mercado
 
 ps auxww | grep 'celery' | awk '{print $2}' | xargs kill -9
