@@ -14,7 +14,6 @@ from programadorEventos.task import multiply
 from scraper.pedirObjeto import llamadaArana, scrapytareas
 from twitter.twitter import escribirTweet,escuchaMencion
 from programadorEventos.task import scrapearTareas
-from matplotlib.backends.backend_agg import FigureCanvasAgg
 
 
 def index(request):

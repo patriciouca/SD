@@ -15,8 +15,7 @@ from twisted.internet import reactor
 from scraper.items import AmazonItem
 from scraper.spiders.amazon import AmazonSpider
 
-lista_nombres = ['Legend-Zelda-Breath-Wild-Nintendo-Switch/dp/B01MS6MO77','YI-1080P60-Dashboard-G-Sensor-Recording/dp/B01C89GCHU','ONeill-Tonal-Camiseta-Manga-Hombre/dp/B07K96RBJ7','SONNENGLAS-Original-micro-USB-Sudáfrica-inoxidable/dp/B00BDPTNB8','+Tira-luz-LED-RGB-compatible/dp/B07MDZ4FFW']
-
+lista_nombres =[]
 def llamadaArana():
     sys.path.append(os.path.dirname(os.path.abspath('.')))
     os.environ['DJANGO_SETTINGS_MODULE'] = 'mercado.settings'

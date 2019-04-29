@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'polls.apps.PollsConfig',
     'lanzamientoTareas.apps.LanzamientotareasConfig',
     'background_task',
+    'djcelery',
 ]
 
 MIDDLEWARE = [
