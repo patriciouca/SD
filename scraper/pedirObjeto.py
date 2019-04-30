@@ -11,6 +11,7 @@ from scrapy.crawler import Crawler, CrawlerProcess, CrawlerRunner
 from scrapy.settings import Settings
 from scrapy.utils.project import get_project_settings
 from twisted.internet import reactor
+from multiprocessing import current_process
 
 from scraper.items import AmazonItem
 from scraper.spiders.amazon import AmazonSpider
