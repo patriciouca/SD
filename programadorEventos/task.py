@@ -39,7 +39,7 @@ def sc():
     return "ok"
 
 '''
-@task(name="updateTwitter")
+@shared_task()
 def twitterStatus():
     escribirTweet()
 '''

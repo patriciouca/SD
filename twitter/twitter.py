@@ -22,12 +22,14 @@ def escribirTweet():
     ultimafecha = data['fecha'][ultimoelemento]
     ultimoprecio = data['precio'][ultimoelemento]
 
-    mensajeTweet(ultimoelemento,ultimafecha,ultimoprecio)
+    mensajeTweet(ultimafecha,ultimoprecio)
 
 
-def mensajeTweet(elem,fech,pre):
+def mensajeTweet(fech,pre):
 
-    api.update_status('El producto Camiseta tiene el siguiente precio a dia ' + fech + '. Precio actualizado: ' + pre)
+    from lanzamientoTareas.models import Tarea
+    for member in Tarea.objects.all():
+        api.update_status('El producto ' + member.articulo +' tiene el siguiente precio a dia ' + fech + '. Precio actualizado: ' + pre)
 
 
 class MyStreamListener(tweepy.StreamListener):
