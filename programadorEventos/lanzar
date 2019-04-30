@@ -1,11 +1,9 @@
 celery flower worker -A programadorEventos.task --loglevel=info --port=5555
 
-celery flower --port=5555
-
 python3 manage.py process_tasks
 
 python3 manage.py celery worker -A programadorEventos.task --loglevel=info
-
+python3 manage.py celery beat
 
 ps auxww | grep 'celery' | awk '{print $2}' | xargs kill -9
 ps auxww | grep 'flower' | awk '{print $2}' | xargs kill -9

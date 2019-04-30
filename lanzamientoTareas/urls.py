@@ -10,5 +10,6 @@ urlpatterns = [
     path('escribirTweet', views.escribirT, name='escribirTweet'),
     path('generarGrafica', views.grafica, name='generarGrafica'),
     path('getTareas', views.getTareas, name='getTareas'),
-    path('escuchaMencion', views.escucharT, name='escuchaMencion')
+    path('escuchaMencion', views.escucharT, name='escuchaMencion'),
+    path('dropboxHacer', views.dropbox, name='dropboxHacer')
 ]

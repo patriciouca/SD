@@ -11,6 +11,7 @@ from django.utils import timezone
 from graficas.graficas import generarGrafica
 from lanzamientoTareas.models import TareaForm, Tarea
 from programadorEventos.task import multiply
+from scraper.dropbox import SubirDropbox, DescargarDropbox
 from scraper.pedirObjeto import llamadaArana, scrapytareas
 from twitter.twitter import escribirTweet,escuchaMencion
 from programadorEventos.task import scrapearTareas
@@ -40,7 +41,7 @@ def lanzarEvento(request):
     return HttpResponse(promise.get())
 
 def lanzarArana(request):
-    llamadaArana()
+    scrapytareas()
     return HttpResponse("ok")
 
 def escribirT(request):
@@ -57,5 +58,9 @@ def grafica(request):
     return HttpResponse("ok")
 
 def getTareas(request):
-    scrapearTareas().delay()
+    scrapearTareas()
+    return "a"
+
+def dropbox(request):
+    DescargarDropbox('/datos/Beuya Muje.csv')
     return "a"

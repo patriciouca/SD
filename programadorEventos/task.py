@@ -17,6 +17,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'untitled1.settings')
 
 app = Celery('tasks', broker='amqp://guest@localhost//',  backend='redis://localhost:6379/0')
 
+
 '''
 app.conf.beat_schedule = {
     'scrappi-every-3-hours': {
@@ -45,7 +46,7 @@ app.conf.beat_schedule = {
 '''
 
 
-@task(name="tareas")
+@shared_task
 def scrapearTareas():
     scrapytareas()
 
