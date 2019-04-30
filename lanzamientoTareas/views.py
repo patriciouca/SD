@@ -26,6 +26,7 @@ def add_Tarea(request):
         if form.is_valid():
             tarea = form.save(commit=False)
             tarea.fecha = timezone.now()
+        
             tarea.save()
             return render(request, 'lanzamientoTareas/index.html',{'tareas':Tarea.objects.all()})
 

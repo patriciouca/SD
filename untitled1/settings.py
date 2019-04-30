@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'polls.apps.PollsConfig',
     'lanzamientoTareas.apps.LanzamientotareasConfig',
-    'background_task',
     'djcelery',
+    'background_task',
 ]
 
 MIDDLEWARE = [
