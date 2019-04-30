@@ -2,6 +2,7 @@ import tweepy
 from tweepy import Stream, StreamListener
 import pandas as pd
 from django.utils import timezone
+from lanzamientoTareas.models import Tarea
 
 from lanzamientoTareas.models import Tarea
 
