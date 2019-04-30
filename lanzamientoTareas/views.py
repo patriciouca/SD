@@ -58,7 +58,7 @@ def grafica(request):
     return HttpResponse("ok")
 
 def getTareas(request):
-    scrapearTareas()
+    scrapearTareas().delay()
     return "a"
 
 def dropbox(request):
