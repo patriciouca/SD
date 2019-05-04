@@ -1,4 +1,5 @@
 import dropbox
+from twitter.twitter import darMensaje
 
 def SubirDropbox(subida):
     import dropbox
@@ -25,4 +26,8 @@ def DescargarDropbox(subida):
         print("No se ha podido descargar")
         return 0
 
-
+def listarArchivos():
+    dbx = dropbox.Dropbox('c_uLk304JZAAAAAAAAAAGmBbP1ofQmaY52zRtIm7z8_p3NT-1hRwx-ZV3E_DlPeo')
+    for entry in dbx.files_list_folder('/datos/').entries:
+        DescargarDropbox('/datos/'+entry.name)
+        darMensaje(entry.name)

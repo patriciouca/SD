@@ -8,7 +8,8 @@ import os
 
 from celery.schedules import crontab
 
-from scraper.pedirObjeto import llamadaArana, scrapytareas
+from graficas.graficas import generarGrafica
+from scraper.pedirObjeto import llamadaArana, scrapytareas, scrapytodaslastareas
 
 from celery.decorators import task
 from celery import Celery, shared_task
@@ -33,7 +34,8 @@ def sc():
 
 @shared_task
 def twitterStatus():
-    scrapytareas()
+    scrapytodaslastareas()
+    generarGrafica()
 
 
 

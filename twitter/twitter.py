@@ -16,26 +16,34 @@ auth = tweepy.OAuthHandler ( consumer_key , consumer_secret)
 auth.set_access_token ( access_token , access_token_secret )
 api = tweepy.API (auth)
 
-def escribirTweet():
+def escribirTweet(nombre):
 
-    data=pd.read_csv('datos/O\'Neill LM Tonal Camiseta Manga Corta, Hombre.csv')
+    data=pd.read_csv('datos/datos.csv')
     data.head()
+    print(data)
     ultimoelemento = len(data['fecha'])-1
     ultimafecha = data['fecha'][ultimoelemento]
     ultimoprecio = data['precio'][ultimoelemento]
 
     mensajeTweet(ultimafecha,ultimoprecio)
 
-'''
-def mensajeTweet(fech,pre):
 
-    from lanzamientoTareas.models import Tarea
-    for member in Tarea.objects.all():
-        api.update_status('El producto ' + member.articulo +' tiene el siguiente precio a dia ' + fech + '. Precio actualizado: ' + pre)
-'''
+def mensajeTweet(fech,pre,nombre):
+    try:
+        api.update_status(
+            'El producto ' + nombre[0:-4] + ' tiene el siguiente precio a dia ' + fech + '. Precio actualizado: ' + pre)
+        api.update_with_media('graficas/imagenes/' + nombre[:-4] + '.png')
+    except Exception:
+        print("a")
 
-def mensajeTweet(fech,pre):
-    api.update_status('Tarea periodica')
+def darMensaje(nombre):
+    data = pd.read_csv('datos/datos.csv')
+    data.head()
+    ultimoelemento = len(data['fecha']) - 1
+    ultimafecha = data['fecha'][ultimoelemento]
+    ultimoprecio = data['precio'][ultimoelemento]
+
+    mensajeTweet(ultimafecha, ultimoprecio,nombre)
 
 class MyStreamListener(tweepy.StreamListener):
 

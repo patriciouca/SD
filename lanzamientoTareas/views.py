@@ -15,6 +15,7 @@ from scraper.dropbox import SubirDropbox, DescargarDropbox
 from scraper.pedirObjeto import scrapytareas, llamadaArana, scrapytodaslastareas
 from twitter.twitter import escribirTweet,escuchaMencion
 from programadorEventos.task import scrapearTareas
+from scraper.dropbox import listarArchivos
 
 
 def index(request):
@@ -60,8 +61,9 @@ def grafica(request):
 
 def getTareas(request):
     scrapytodaslastareas()
+    generarGrafica()
     return "a"
 
 def dropbox(request):
-    DescargarDropbox('/datos/Beuya Muje.csv')
+    listarArchivos()
     return "a"

@@ -9,10 +9,8 @@ from scraper.dropbox import DescargarDropbox
 def generarGrafica():
     dbx = dropbox.Dropbox('c_uLk304JZAAAAAAAAAAGmBbP1ofQmaY52zRtIm7z8_p3NT-1hRwx-ZV3E_DlPeo')
     for entry in dbx.files_list_folder('/datos/').entries:
-        print(entry.name)
         DescargarDropbox('/datos/'+entry.name)
-        hacerGrafica2("datos.csv",entry.name)
-        hacerGrafica2("prueba.csv","prueba.csv")
+        hacerGrafica("datos.csv",entry.name)
 
 
 def hacerGrafica(file,entry):
