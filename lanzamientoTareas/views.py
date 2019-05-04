@@ -12,7 +12,7 @@ from graficas.graficas import generarGrafica
 from lanzamientoTareas.models import TareaForm, Tarea
 from programadorEventos.task import multiply
 from scraper.dropbox import SubirDropbox, DescargarDropbox
-from scraper.pedirObjeto import llamadaArana, scrapytareas
+from scraper.pedirObjeto import scrapytareas,llamadaArana
 from twitter.twitter import escribirTweet,escuchaMencion
 from programadorEventos.task import scrapearTareas
 
@@ -59,7 +59,7 @@ def grafica(request):
     return HttpResponse("ok")
 
 def getTareas(request):
-    scrapearTareas().delay()
+    llamadaArana()
     return "a"
 
 def dropbox(request):

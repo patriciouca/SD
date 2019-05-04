@@ -30,7 +30,6 @@ def llamadaArana():
     run_spi_pro(spider)
 
 def scrapytareas():
-    '''
     sys.path.append(os.path.dirname(os.path.abspath('.')))
     os.environ['DJANGO_SETTINGS_MODULE'] = 'mercado.settings'
 
@@ -41,8 +40,8 @@ def scrapytareas():
     spider = AmazonSpider
     item = AmazonItem()
     run_spi_pro_tar(spider)
-    '''
-    print("hola")
+
+
 
 def otro(spider):
     os.system("scrapy crawl yourspider")
@@ -53,12 +52,9 @@ def run_spi_pro_tar(spider):
         try:
             settings = get_project_settings()
             process = CrawlerProcess(settings)
+            start=[]
 
-            start = []
-            from lanzamientoTareas.models import Tarea
-            for member in Tarea.objects.all():
-                start.append(member.articulo)
-
+            start.append("https://www.amazon.es/Bosch-Carton-atornillador-inalámbrico-603-9-a8-006/dp/B01N43TJ8K")
             process.crawl(spider,start_urls=start)
             process.start()  # the script will block here until the crawling is finished
             q.put(None)
@@ -73,6 +69,7 @@ def run_spi_pro_tar(spider):
 
     if result is not None:
         raise result
+
 
 
 def run_spi_pro(spider):
