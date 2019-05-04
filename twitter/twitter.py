@@ -2,7 +2,6 @@ import tweepy
 from tweepy import Stream, StreamListener
 import pandas as pd
 from django.utils import timezone
-from lanzamientoTareas.models import Tarea
 
 from lanzamientoTareas.models import Tarea
 
@@ -25,13 +24,16 @@ def escribirTweet():
 
     mensajeTweet(ultimafecha,ultimoprecio)
 
-
+'''
 def mensajeTweet(fech,pre):
 
     from lanzamientoTareas.models import Tarea
     for member in Tarea.objects.all():
         api.update_status('El producto ' + member.articulo +' tiene el siguiente precio a dia ' + fech + '. Precio actualizado: ' + pre)
+'''
 
+def mensajeTweet(fech,pre):
+    api.update_status('Tarea periodica')
 
 class MyStreamListener(tweepy.StreamListener):
 

@@ -9,21 +9,14 @@ import os
 from celery.schedules import crontab
 
 from scraper.pedirObjeto import llamadaArana, scrapytareas
+
 from celery.decorators import task
 from celery import Celery, shared_task
 
-
-
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'untitled1.settings')
 
-app = Celery('tasks', broker='amqp://guest@localhost//',  backend='redis://localhost:6379/0')
-
-@worker_process_init.connect
-def fix_multiprocessing(**kwargs):
-    try:
-        current_process()._config
-    except AttributeError:
-        current_process()._config = {'semprefix': '/mp'}
+app = Celery('tasks', broker='amqp://guest@localhost//',  backend='djcelery.backends.database:DatabaseBackend')
+app.config_from_object('django.conf:settings', namespace='CELERY')
 
 @shared_task
 def scrapearTareas():
@@ -38,11 +31,9 @@ def sc():
     llamadaArana()
     return "ok"
 
-'''
-@shared_task()
+@shared_task
 def twitterStatus():
-    escribirTweet()
-'''
+    print("hola")
 
 
 

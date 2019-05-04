@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'lanzamientoTareas.apps.LanzamientotareasConfig',
     'djcelery',
     'background_task',
+    'django_celery_beat',
 ]
 
 MIDDLEWARE = [
@@ -124,4 +125,3 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'

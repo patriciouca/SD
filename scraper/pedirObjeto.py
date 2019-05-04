@@ -30,6 +30,7 @@ def llamadaArana():
     run_spi_pro(spider)
 
 def scrapytareas():
+    '''
     sys.path.append(os.path.dirname(os.path.abspath('.')))
     os.environ['DJANGO_SETTINGS_MODULE'] = 'mercado.settings'
 
@@ -40,6 +41,8 @@ def scrapytareas():
     spider = AmazonSpider
     item = AmazonItem()
     run_spi_pro_tar(spider)
+    '''
+    print("hola")
 
 def otro(spider):
     os.system("scrapy crawl yourspider")
