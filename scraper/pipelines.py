@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 
 import csv
-from datetime import datetime, date, time, timedelta
 import calendar
 
 from django.utils import timezone
-from dropbox import dropbox
+from datetime import datetime
 
 from scraper.dropbox import SubirDropbox, DescargarDropbox
 
@@ -46,7 +45,7 @@ class AmazontrackPipeline(object):
         tituloH=item['nombre'][0:10]+'.csv'
 
         formato2 = "%d-%m-%y %H:%m"
-        hoy = datetime.today()  # Asigna fecha-hora
+        hoy = datetime.today()
         fecha = hoy.strftime(formato2)
 
         if DescargarDropbox('/datos/'+tituloH) == 0:

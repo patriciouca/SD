@@ -33,7 +33,7 @@ def sc():
 
 @shared_task
 def twitterStatus():
-    print("hola")
+    scrapytareas()
 
 
 

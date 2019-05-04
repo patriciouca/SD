@@ -1,12 +1,11 @@
-
-
 import dropbox
-import tempfile
 
 def SubirDropbox(subida):
+    import dropbox
     file_from ='datos/datos.csv'
     file_to = '/datos/'+subida
     print(file_to)
+    import dropbox
     dbx = dropbox.Dropbox('c_uLk304JZAAAAAAAAAAGmBbP1ofQmaY52zRtIm7z8_p3NT-1hRwx-ZV3E_DlPeo')
     print(file_to)
     dbx.files_upload(open(file_from, 'rb').read(),file_to, mode=dropbox.files.WriteMode.overwrite)
@@ -14,6 +13,7 @@ def SubirDropbox(subida):
 
 
 def DescargarDropbox(subida):
+    import dropbox
     dbx = dropbox.Dropbox('c_uLk304JZAAAAAAAAAAGmBbP1ofQmaY52zRtIm7z8_p3NT-1hRwx-ZV3E_DlPeo')
     try:
         metadata, f = dbx.files_download(subida)
