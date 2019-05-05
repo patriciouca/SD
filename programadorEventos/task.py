@@ -7,8 +7,8 @@ from multiprocessing import current_process
 import os
 
 from celery.schedules import crontab
+from django.conf import settings
 
-from graficas.graficas import generarGrafica
 from scraper.pedirObjeto import llamadaArana, scrapytareas, scrapytodaslastareas
 
 from celery.decorators import task
@@ -34,8 +34,7 @@ def sc():
 
 @shared_task
 def twitterStatus():
-    scrapytodaslastareas()
-    generarGrafica()
+    listarArchivos()
 
 
 

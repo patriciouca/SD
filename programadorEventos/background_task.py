@@ -1,4 +1,4 @@
-from twitter.twitter import escuchaMencion
+from scraper.twitter import escuchaMencion
 from background_task import background
 
 

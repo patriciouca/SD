@@ -1,7 +1,6 @@
 
 from celery import chain
 from django.shortcuts import render
-import io
 
 # Create your views here.
 from django.http import HttpResponse
@@ -11,10 +10,8 @@ from django.utils import timezone
 from graficas.graficas import generarGrafica
 from lanzamientoTareas.models import TareaForm, Tarea
 from programadorEventos.task import multiply
-from scraper.dropbox import SubirDropbox, DescargarDropbox
-from scraper.pedirObjeto import scrapytareas, llamadaArana, scrapytodaslastareas
-from twitter.twitter import escribirTweet,escuchaMencion
-from programadorEventos.task import scrapearTareas
+from scraper.pedirObjeto import scrapytareas, scrapytodaslastareas
+from scraper.twitter import escribirTweet,escuchaMencion
 from scraper.dropbox import listarArchivos
 
 

@@ -1,8 +1,7 @@
 import dropbox
-from twitter.twitter import darMensaje
+from scraper.twitter import darMensaje
 
 def SubirDropbox(subida):
-    import dropbox
     file_from ='datos/datos.csv'
     file_to = '/datos/'+subida
     print(file_to)
