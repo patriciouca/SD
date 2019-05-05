@@ -12,7 +12,21 @@ def generarGrafica():
         DescargarDropbox('/datos/'+entry.name)
         hacerGrafica("datos.csv",entry.name)
 
+def hacerGrafica(file,entry):
+    data = pd.read_csv("datos/"+file, delimiter=',')
+    data.head()
+    print(data)
 
+
+    plt.plot(data['fecha'], len(data))
+    plt.xlabel('Dia')
+    plt.ylabel('Precio')
+
+    plt.savefig('graficas/imagenes/' + entry[:-4] + '.png')
+    plt.show()
+
+'''
+ESTE ES EL TUYO PATRI
 def hacerGrafica(file,entry):
     data = pd.read_csv("datos/"+file, delimiter=',')
     data.head()
@@ -24,7 +38,7 @@ def hacerGrafica(file,entry):
 
     plt.savefig('graficas/imagenes/' + entry[:-4] + '.png')
     plt.show()
-
+'''
 
 
 
