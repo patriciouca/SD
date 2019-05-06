@@ -51,7 +51,10 @@ class MyStreamListener(tweepy.StreamListener):
         from unshortenit import UnshortenIt
         if("quiero vigilar este producto" in status.text):
             url=status.text[status.text.index("https"):]
-            url = url[0:url.index(" ")]
+            try:
+                url = url[0:url.index(" ")]
+            except:
+                url = url
 
             unshortener = UnshortenIt()
             url = unshortener.unshorten(url)

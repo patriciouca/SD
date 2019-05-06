@@ -5,5 +5,3 @@ python3 manage.py celery worker -A programadorEventos.task --loglevel=info --> l
 python3 manage.py celery beat -l debug --scheduler django_celery_beat.schedulers:DatabaseScheduler --> lanzar beat
 
 ps auxww | grep 'celery' | awk '{print $2}' | xargs kill -9 --> matar celery
-
-¡¡
