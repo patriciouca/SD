@@ -20,7 +20,7 @@ from programadorEventos.background_task import escucharTweets
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('polls/', include('polls.urls')),
     path('lanzamientoTareas/', include('lanzamientoTareas.urls')),
+    path('', include('lanzamientoTareas.urls')),
 ]
 escucharTweets(repeat=1,repeat_until=None)

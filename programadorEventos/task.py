@@ -9,6 +9,7 @@ import os
 from celery.schedules import crontab
 from django.conf import settings
 
+from graficas.graficas import generarGrafica
 from scraper.dropbox import listarArchivos
 from scraper.pedirObjeto import llamadaArana, scrapytareas, scrapytodaslastareas
 
@@ -37,6 +38,7 @@ def sc():
 
 @shared_task
 def twitterStatus():
+    generarGrafica()
     listarArchivos()
 
 

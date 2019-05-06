@@ -46,7 +46,7 @@ def lanzarArana(request):
 
 def escribirT(request):
     twitterStatus.s().apply_async(countdown=1)
-    return HttpResponse("ok")
+    return render(request, 'lanzamientoTareas/index.html',{'tareas':Tarea.objects.all()})
 
 def escucharT(request):
     escuchaMencion()
@@ -68,4 +68,4 @@ def dropbox(request):
 
 def procesoScrapear(request):
     scrapearTareas.s().apply_async(countdown=1)
-    return "ok"
+    return render(request, 'lanzamientoTareas/index.html',{'tareas':Tarea.objects.all()})
