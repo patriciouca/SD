@@ -12,13 +12,13 @@
         <div class="page-header">
             {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
             <a href="{% url 'crear' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-            <a href="{% url 'lanzar' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-            <a href="{% url 'lanzarAr' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-            <a href="{% url 'escribirTweet' %}" class="top-menu">Tweet</a>
+            <a href="{% url 'procScrapear' %}" class="top-menu">Scrapear</a>
+            <a href="{% url 'escribirTweet' %}" class="top-menu">Twittear</a>
+            <!--
             <a href="{% url 'generarGrafica' %}" class="top-menu">Grafica</a>
             <a href="{% url 'getTareas' %}" class="top-menu">Tareas</a>
             <a href="{% url 'escuchaMencion' %}" class="top-menu">Escucha mencion</a>
-            <a href="{% url 'dropboxHacer' %}" class="top-menu">Dropbox</a>
+            <a href="{% url 'dropboxHacer' %}" class="top-menu">Dropbox</a>-->
         <h1>Plantilla Tareas</h1>
         </div>
         <div class="content container">

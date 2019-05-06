@@ -9,10 +9,12 @@ import os
 from celery.schedules import crontab
 from django.conf import settings
 
+from scraper.dropbox import listarArchivos
 from scraper.pedirObjeto import llamadaArana, scrapytareas, scrapytodaslastareas
 
 from celery.decorators import task
 from celery import Celery, shared_task
+
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'untitled1.settings')
 
@@ -21,7 +23,8 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 
 @shared_task
 def scrapearTareas():
-    scrapytareas()
+    import billiard as multiprocessing
+    scrapytodaslastareas()
 
 @shared_task
 def multiply(a, b):

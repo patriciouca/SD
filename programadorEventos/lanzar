@@ -6,6 +6,4 @@ python3 manage.py celery beat -l debug --scheduler django_celery_beat.schedulers
 
 ps auxww | grep 'celery' | awk '{print $2}' | xargs kill -9 --> matar celery
 
-
-celery -A programadorEventos.task worker -l info
-celery -A programadorEventos.task beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler
+¡¡

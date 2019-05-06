@@ -1,6 +1,6 @@
 import logging
-from multiprocessing import Process, Queue
-
+from billiard.context import Process
+from multiprocessing import Queue
 from scrapy import signals
 import json
 

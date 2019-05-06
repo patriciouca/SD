@@ -1,5 +1,5 @@
 
-from celery import chain
+from celery import chain, task,signature
 from django.shortcuts import render
 
 # Create your views here.
@@ -13,6 +13,7 @@ from programadorEventos.task import multiply
 from scraper.pedirObjeto import scrapytareas, scrapytodaslastareas
 from scraper.twitter import escribirTweet,escuchaMencion
 from scraper.dropbox import listarArchivos
+from programadorEventos.task import scrapearTareas
 
 
 def index(request):
@@ -64,3 +65,7 @@ def getTareas(request):
 def dropbox(request):
     listarArchivos()
     return "a"
+
+def procesoScrapear(request):
+    scrapearTareas.s().apply_async(countdown=1)
+    return "ok"

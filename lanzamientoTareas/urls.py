@@ -11,5 +11,6 @@ urlpatterns = [
     path('generarGrafica', views.grafica, name='generarGrafica'),
     path('getTareas', views.getTareas, name='getTareas'),
     path('escuchaMencion', views.escucharT, name='escuchaMencion'),
-    path('dropboxHacer', views.dropbox, name='dropboxHacer')
+    path('dropboxHacer', views.dropbox, name='dropboxHacer'),
+    path('procScrapear', views.procesoScrapear, name='procScrapear')
 ]
