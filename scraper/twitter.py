@@ -30,10 +30,10 @@ def escribirTweet(nombre):
 def mensajeTweet(fech,pre,nombre):
     try:
         api.update_status(
-            'tanEl producto ' + nombre[0:-4] + ' tiene el siguiente precio a dia ' + fech + '. Precio actualizado: ' + pre)
+            'tryEl producto ' + nombre[0:-4] + ' tiene el siguiente precio a dia ' + fech + '. Precio actualizado: ' + pre)
         api.update_with_media('graficas/imagenes/' + nombre[:-4] + '.png')
     except Exception:
-        print("a")
+        print("Tweet ya escrito")
 
 def darMensaje(nombre):
     data = pd.read_csv('datos/datos.csv')

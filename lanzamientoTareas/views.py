@@ -9,7 +9,7 @@ from django.utils import timezone
 
 from graficas.graficas import generarGrafica
 from lanzamientoTareas.models import TareaForm, Tarea
-from programadorEventos.task import multiply
+from programadorEventos.task import multiply, twitterStatus
 from scraper.pedirObjeto import scrapytareas, scrapytodaslastareas
 from scraper.twitter import escribirTweet,escuchaMencion
 from scraper.dropbox import listarArchivos
@@ -45,7 +45,7 @@ def lanzarArana(request):
     return HttpResponse("ok")
 
 def escribirT(request):
-    escribirTweet()
+    twitterStatus.s().apply_async(countdown=1)
     return HttpResponse("ok")
 
 def escucharT(request):
